@@ -1,12 +1,31 @@
-var http = require('http');
+var express = require('express');
+var app = express();
 
-var server = http.createServer(function (req, res) {
-	console.log('im receiving request:', req.url);
-	res.end('a mne pohui');
+// common
+console.log('starting..');
+
+app.use(function(req, res, next) {
+	setTimeout(function() {
+		console.log('handler 1', req.path);
+		next();	
+	}, 0);	
 });
 
-server.listen(8080, function(err, data) {
-	err ?
-		console.log('cant start server') :
-		console.log('server started at port ' + 8080);
+app.use(function(req, res, next) {
+	console.log('handler 2', req.path);
+	next();
 });
+
+// api routes
+
+app.get('/api/*', function (req, res) {
+  res.send('i am api');
+});
+
+app.get('/master.html', function (req, res) {
+  res.send('i am master');
+});
+ 
+app.listen(8080);
+console.log('anuka');
+
