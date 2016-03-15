@@ -1,10 +1,10 @@
 {
   "name": "bumba",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "hacking with bro",
   "main": "index.js",
   "scripts": {
-    "start": "gulp build && node index.js",
+    "start": "gulp start-dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "angular": "^1.5.0",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.0.6",
     "gulp-webpack": "^1.5.0",
     "webpack": "^1.12.14"
   }

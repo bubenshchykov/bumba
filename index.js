@@ -8,3 +8,4 @@ app.use(router);
 app.get('*', middlewares.master);
  
 app.listen(8080);
+console.log('server started at port 8080..');

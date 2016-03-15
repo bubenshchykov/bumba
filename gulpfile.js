@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var webpack = require('gulp-webpack');
+var nodemon = require('gulp-nodemon');
 
 gulp.task('js', function() {
   return gulp.src('client/dev/app.js')
@@ -15,6 +16,14 @@ gulp.task('copy', function () {
 
 gulp.task('watch-client', function() {
 	gulp.watch('client/dev/**/*.*', ['build']);	
-})
+});
 
-gulp.task('build', ['js', 'copy', 'watch-client']);
+gulp.task('watch-start-server', function () {
+	nodemon({
+		script: 'index.js',
+		ext: 'js',
+		watch: ['server', 'node_modules']
+	});
+});
+
+gulp.task('start-dev', ['js', 'copy', 'watch-client', 'watch-start-server']);
