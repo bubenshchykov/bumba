@@ -1,14 +1,10 @@
 var express = require('express');
 var app = express();
+var middlewares = require('./server/middlewares');
+var router = require('./server/router');
 
-app.use(express.static(__dirname + '/static'));
-
-app.get('/api/*', function (req, res) {
-  res.send('i am api');
-});
-
-app.get('*', function (req, res) {
-  res.sendFile('./static/index.html', {root: __dirname});
-});
+app.use(express.static(__dirname + '/client/build'));
+app.use(router);
+app.get('*', middlewares.master);
  
 app.listen(8080);
