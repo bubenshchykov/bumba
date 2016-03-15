@@ -1,8 +1,10 @@
 var angular = require('angular');
-console.log(angular);
 
-var iterate = require('./util.js');
-
-console.log('starting angular');
-iterate(30);
-
+var app = angular.module('app', []);
+app.controller('Bro', function($scope, $interval) {
+	$scope.name = 'Zheka';
+	$scope.iq = 110;
+	$interval(function() {
+		$scope.iq++;
+	}, 1000);
+});
