@@ -26,4 +26,6 @@ gulp.task('watch-start-server', function () {
 	});
 });
 
-gulp.task('start-dev', ['js', 'copy', 'watch-client', 'watch-start-server']);
+gulp.task('build', ['js', 'copy']);
+
+gulp.task('local', ['build', 'watch-client', 'watch-start-server']);

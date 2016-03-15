@@ -7,5 +7,6 @@ app.use(express.static(__dirname + '/client/build'));
 app.use(router);
 app.get('*', middlewares.master);
  
-app.listen(8080);
-console.log('server started at port 8080..');
+var port = process.env.PORT || 8080;
+app.listen(port);
+console.log('server started at port ' + port + '..');
