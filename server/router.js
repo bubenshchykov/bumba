@@ -1,7 +1,7 @@
 var router = require('express').Router();
 
 router.use(function(req, res, next) {
-	console.log('api request', req.method, req.path);
+	console.log('request', req.method, req.path);
 	next();
 });
 
