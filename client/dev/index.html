@@ -1,0 +1,20 @@
+<doctype html>
+<html>
+	<head>
+		<title>Master</title>
+		<link rel="stylesheet" href="/app.css">
+	</head>
+	<body ng-app="app">
+		Angular app!
+		<div ng-controller="Bro">
+			{{name}} aaaand iq: {{iq}}
+
+			<div>
+				Age: <input type="number" ng-model="age" ng-change="onAgeChange()" />
+			</div>
+			<div>
+				BroAge: <input type="number" ng-model="broAge" ng-change="onBroAgeChange()" />
+			</div>
+		<script type="text/javascript" src="/app.js" charset="utf-8"></script>
+	</body>
+</html>
