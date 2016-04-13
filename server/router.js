@@ -16,7 +16,8 @@ router.get('/api/clients', function(req, res, next) {
 });
 
 router.delete('/api/clients/:id', function(req, res, next) {
-	req.db.collection('clients').findAndRemove({_id: mongodb.ObjectId(req.params.id)}, function(err, data) {
+	req.db.collection('clients').findAndRemove(
+		{_id: mongodb.ObjectId(req.params.id)}, function(err, data) {
 		res.sendStatus(204);
 	});
 });
